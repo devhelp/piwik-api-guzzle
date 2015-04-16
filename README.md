@@ -15,4 +15,4 @@ Guzzle extension for [devhelp/piwik-api](https://github.com/devhelp/piwik-api)
 
 ## Credits
 
-Brought to you by : Devhelp.pl (http://devhelp.pl)
+Brought to you by : [devhelp.pl](http://devhelp.pl)
