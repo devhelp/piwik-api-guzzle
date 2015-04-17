@@ -11,4 +11,3 @@ before_script:
 
 script:
   - ./bin/phpcs --standard=phpcs.xml src/
-  - ./bin/phpunit

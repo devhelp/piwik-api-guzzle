@@ -40,6 +40,6 @@ class PiwikGuzzleClient implements PiwikClient
             throw new InvalidResponse('Api returned invalid status code: '.$response->getStatusCode(), $response);
         }
 
-        return $response->getBody();
+        return (string) $response->getBody();
     }
 }
