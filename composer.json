@@ -24,8 +24,8 @@
         }
     },
     "require": {
-        "php": ">=5.4",
-        "devhelp/piwik-api": "0.*",
+        "php": ">=5.3",
+        "devhelp/piwik-api": "0.*,<=0.2",
         "guzzlehttp/guzzle": "5.*"
     },
     "require-dev": {
