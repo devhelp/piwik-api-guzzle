@@ -3,8 +3,8 @@
 namespace Devhelp\Piwik\Api\Guzzle\Client;
 
 use Devhelp\Piwik\Api\Client\PiwikClient;
-use Devhelp\Piwik\Api\Exception\InvalidResponse;
 use GuzzleHttp\ClientInterface;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Wrapper for guzzle http client for the Method class
@@ -28,18 +28,13 @@ class PiwikGuzzleClient implements PiwikClient
         $this->method = $method;
     }
 
-    public function call($url, array $params = array())
+    /**
+     * @param string $url base piwik api url
+     * @param array $params api parameters
+     * @return ResponseInterface
+     */
+    public function call($url, array $params = [])
     {
-        $request = $this->guzzleClient->createRequest($this->method, $url);
-
-        $request->getQuery()->merge($params);
-
-        $response = $this->guzzleClient->send($request);
-
-        if ($response->getStatusCode() > 300) {
-            throw new InvalidResponse('Api returned invalid status code: '.$response->getStatusCode(), $response);
-        }
-
-        return (string) $response->getBody();
+        return $this->guzzleClient->request($this->method, $url, ['query' => $params]);
     }
 }
